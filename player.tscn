@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://di5i883qlvstw"]
+[gd_scene load_steps=6 format=3 uid="uid://di5i883qlvstw"]
 
 [ext_resource type="Script" uid="uid://b0fem45f27w6l" path="res://Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://gwfcwphikkyk" path="res://Scripts/camera.gd" id="2_i3pqv"]
+[ext_resource type="Script" uid="uid://c2mmjrx0gk8fl" path="res://Scripts/flashlight.gd" id="3_i3pqv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
@@ -21,3 +22,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4685, 0)
 script = ExtResource("2_i3pqv")
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="Flashlight" type="SpotLight3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0238982, -0.529321)
+spot_range = 15.0
+script = ExtResource("3_i3pqv")

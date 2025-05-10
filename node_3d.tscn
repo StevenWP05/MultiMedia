@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://blm7p0hs2et1t"]
+[gd_scene load_steps=7 format=3 uid="uid://blm7p0hs2et1t"]
 
 [ext_resource type="PackedScene" uid="uid://ba1c40as2ip2i" path="res://Horror maze.blend" id="1_a202f"]
 [ext_resource type="PackedScene" uid="uid://di5i883qlvstw" path="res://player.tscn" id="2_noarx"]
+[ext_resource type="PackedScene" uid="uid://bw0dd1426fuv6" path="res://ui.tscn" id="3_a0tk4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noarx"]
 sky_horizon_color = Color(0.657088, 0.6758, 0.694029, 1)
@@ -23,7 +24,9 @@ glow_enabled = true
 environment = SubResource("Environment_r3fl7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 17.7541, 0)
+light_color = Color(0.270936, 0.174123, 0.193276, 1)
+light_energy = 1.445
 shadow_enabled = true
 
 [node name="Horror maze" parent="." instance=ExtResource("1_a202f")]
@@ -31,3 +34,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56467, 0.901581, 6.36642)
 
 [node name="player" parent="." instance=ExtResource("2_noarx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20467, 9.49274, 0.783881)
+
+[node name="UI" parent="." instance=ExtResource("3_a0tk4")]
