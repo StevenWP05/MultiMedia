@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://blm7p0hs2et1t"]
+[gd_scene load_steps=9 format=3 uid="uid://blm7p0hs2et1t"]
 
 [ext_resource type="PackedScene" uid="uid://ba1c40as2ip2i" path="res://Horror maze.blend" id="1_a202f"]
 [ext_resource type="PackedScene" uid="uid://di5i883qlvstw" path="res://player.tscn" id="2_noarx"]
@@ -18,15 +18,22 @@ sky = SubResource("Sky_a0tk4")
 tonemap_mode = 2
 glow_enabled = true
 
+[sub_resource type="BoxMesh" id="BoxMesh_a0tk4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0tk4"]
+albedo_color = Color(0.219501, 0.219501, 0.219501, 1)
+roughness = 0.88
+
 [node name="Node3D" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_r3fl7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 17.7541, 0)
-light_color = Color(0.270936, 0.174123, 0.193276, 1)
-light_energy = 1.445
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 24.4457, 0)
+visible = false
+light_color = Color(0.230746, 0.145528, 0.162408, 1)
+light_energy = 0.0
 shadow_enabled = true
 
 [node name="Horror maze" parent="." instance=ExtResource("1_a202f")]
@@ -34,5 +41,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56467, 0.901581, 6.36642)
 
 [node name="player" parent="." instance=ExtResource("2_noarx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20467, 9.49274, 0.783881)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(190, 0, 0, 0, 5, 0, 0, 0, 190, -1.41353, 15.2862, 4.9462)
+mesh = SubResource("BoxMesh_a0tk4")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_a0tk4")
 
 [node name="UI" parent="." instance=ExtResource("3_a0tk4")]
