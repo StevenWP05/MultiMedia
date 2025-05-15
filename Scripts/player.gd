@@ -8,6 +8,8 @@ var sprint_slider
 func _ready():
 	sprint_slider = get_node("/root/" + get_tree().current_scene.name + "/UI/sprint_slider")
 
+
+		
 func _process(delta):
 	if SPEED == 8:
 		sprint_slider.value = sprint_slider.value - 0.3 * delta
