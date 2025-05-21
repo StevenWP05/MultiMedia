@@ -25,6 +25,8 @@ script = ExtResource("2_i3pqv")
 
 [node name="Flashlight" type="SpotLight3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0238982, -0.529321)
+light_color = Color(0.876796, 0.837701, 0.833402, 1)
 light_energy = 6.35
+light_volumetric_fog_energy = 0.1
 spot_range = 15.0
 script = ExtResource("3_i3pqv")
