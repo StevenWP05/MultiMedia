@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://blm7p0hs2et1t"]
+[gd_scene load_steps=15 format=3 uid="uid://blm7p0hs2et1t"]
 
 [ext_resource type="PackedScene" uid="uid://ba1c40as2ip2i" path="res://Horror maze.blend" id="1_a202f"]
 [ext_resource type="PackedScene" uid="uid://di5i883qlvstw" path="res://player.tscn" id="2_noarx"]
 [ext_resource type="PackedScene" uid="uid://bw0dd1426fuv6" path="res://ui.tscn" id="3_a0tk4"]
+[ext_resource type="Script" uid="uid://dbn3uehxqx0s7" path="res://area_3d.gd" id="4_r3fl7"]
+[ext_resource type="PackedScene" uid="uid://b5xobwyf6vb55" path="res://win_screen.tscn" id="5_jka67"]
+[ext_resource type="PackedScene" uid="uid://cm1uiioyohk6w" path="res://Pause.tscn" id="6_i5arm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a0tk4"]
 sky_top_color = Color(0.235488, 0.0902875, 0.0663959, 1)
@@ -14,17 +17,38 @@ ground_horizon_color = Color(0.0322376, 0.034035, 0.0369887, 1)
 sky_material = SubResource("ProceduralSkyMaterial_a0tk4")
 
 [sub_resource type="Environment" id="Environment_r3fl7"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.0323788, 0.0376735, 0.0573836, 1)
+background_energy_multiplier = 0.88
 sky = SubResource("Sky_r3fl7")
+ambient_light_energy = 1.5
 tonemap_mode = 3
+tonemap_exposure = 0.88
+tonemap_white = 0.2
 glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0.17508, 0.169676, 0.248408, 1)
+fog_light_energy = 0.2
+fog_density = 0.076
+fog_sky_affect = 0.275
 adjustment_enabled = true
 
-[sub_resource type="BoxMesh" id="BoxMesh_a0tk4"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
+albedo_color = Color(0.316036, 0.0884506, 0.059503, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a0tk4"]
-albedo_color = Color(0.219501, 0.219501, 0.219501, 1)
-roughness = 0.88
+[sub_resource type="CylinderMesh" id="CylinderMesh_wc5p8"]
+material = SubResource("StandardMaterial3D_i5arm")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
+size = Vector3(0.337769, 1, 0.450317)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
+albedo_color = Color(0.512357, 0, 0.0463973, 1)
+metallic = 0.75
+roughness = 0.64
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5arm"]
+material = SubResource("StandardMaterial3D_jka67")
 
 [node name="Node3D" type="Node3D"]
 
@@ -33,19 +57,66 @@ environment = SubResource("Environment_r3fl7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.75, -0.43301, 0, 24.4457, 0)
-visible = false
+light_color = Color(0.112407, 0.107197, 0.253124, 1)
+light_energy = 11.852
 shadow_enabled = true
 
 [node name="Horror maze" parent="." instance=ExtResource("1_a202f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56467, 0.901581, 6.36642)
 
 [node name="player" parent="." instance=ExtResource("2_noarx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.20467, 9.49274, 0.783881)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(190, 0, 0, 0, 5, 0, 0, 0, 190, -1.41353, 15.2862, 4.9462)
-mesh = SubResource("BoxMesh_a0tk4")
-skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_a0tk4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.2865, 9.49274, 10.3699)
 
 [node name="UI" parent="." instance=ExtResource("3_a0tk4")]
+anchor_right = 1.0
+anchor_bottom = 1.003
+offset_right = 0.0
+offset_bottom = 0.0559692
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(2.725, 0, 0, 0, 2.725, 0, 0, 0, 2.725, -94.9654, 7.03775, 0.320546)
+script = ExtResource("4_r3fl7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(-2.57897e-09, 0, 0.085, 0, 0.124, 0, -0.059, 0, -3.71547e-09, 0.492996, 0.760524, 0.552021)
+mesh = SubResource("CylinderMesh_wc5p8")
+skeleton = NodePath("../Door")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.272079, 1.10416, 0.28119)
+shape = SubResource("BoxShape3D_jka67")
+
+[node name="Door" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(0.335, 0, 0, 0, 1.3, 0, 0, 0, 0.865, 0.36282, 0.760524, 0.281288)
+mesh = SubResource("BoxMesh_i5arm")
+
+[node name="Win" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Win screen" parent="Win" instance=ExtResource("5_jka67")]
+visible = false
+layout_mode = 1
+
+[node name="Pausemenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Pause_menu" parent="Pausemenu" instance=ExtResource("6_i5arm")]
+visible = false
+layout_mode = 1
