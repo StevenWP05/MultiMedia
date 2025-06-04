@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://c4rpyru75srwa"]
 
 [ext_resource type="Texture2D" uid="uid://bgduo04t0a2nw" path="res://background.webp" id="1_06t4h"]
-[ext_resource type="Script" uid="uid://df580u2kwsdsb" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://df580u2kwsdsb" path="res://Scripts/main_menu.gd" id="1_fu7sn"]
 [ext_resource type="FontFile" uid="uid://bixh6yjbmwkif" path="res://Beautiful Horror.ttf" id="2_7vrkn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vrkn"]
@@ -46,7 +46,7 @@ script = ExtResource("1_fu7sn")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(575, 351)
-scale = Vector2(1.12695, 1)
+scale = Vector2(2.667, 2.366)
 texture = ExtResource("1_06t4h")
 
 [node name="Panel" type="Panel" parent="."]
