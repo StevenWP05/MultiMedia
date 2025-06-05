@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://blm7p0hs2et1t"]
+[gd_scene load_steps=19 format=3 uid="uid://blm7p0hs2et1t"]
 
 [ext_resource type="PackedScene" uid="uid://ba1c40as2ip2i" path="res://Horror maze.blend" id="1_a202f"]
 [ext_resource type="Script" uid="uid://d0s7j5ey5jx1x" path="res://node_3d.gd" id="1_wc5p8"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b5xobwyf6vb55" path="res://win_screen.tscn" id="5_jka67"]
 [ext_resource type="PackedScene" uid="uid://cm1uiioyohk6w" path="res://Pause.tscn" id="6_i5arm"]
 [ext_resource type="PackedScene" uid="uid://cunkjwy1drdro" path="res://enemy.tscn" id="8_jsk3o"]
+[ext_resource type="AudioStream" uid="uid://ba33g4mpa1n4u" path="res://assets/audio/556815__ruidit0s__tense-creepy-atmosphere-underground.wav" id="9_4arys"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a0tk4"]
 sky_top_color = Color(0.235488, 0.0902875, 0.0663959, 1)
@@ -135,3 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56467, 0.901581, 6.36642)
 
 [node name="Enemy" parent="." instance=ExtResource("8_jsk3o")]
 transform = Transform3D(0.0191968, 0, -0.79977, 0, 0.8, 0, 0.79977, 0, 0.0191968, 65.4936, 7.9103, 10.2706)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_4arys")
+autoplay = true

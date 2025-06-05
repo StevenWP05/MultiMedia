@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://di5i883qlvstw"]
+[gd_scene load_steps=8 format=3 uid="uid://di5i883qlvstw"]
 
 [ext_resource type="Script" uid="uid://b0fem45f27w6l" path="res://Scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Script" uid="uid://gwfcwphikkyk" path="res://Scripts/camera.gd" id="2_i3pqv"]
 [ext_resource type="Script" uid="uid://c2mmjrx0gk8fl" path="res://Scripts/flashlight.gd" id="3_i3pqv"]
+[ext_resource type="AudioStream" uid="uid://cd0hfqwpqlabf" path="res://assets/audio/footsteps-walking-on-concrete-glitchedtones-fast-1-00-13.mp3" id="4_sweqy"]
+[ext_resource type="AudioStream" uid="uid://by4slpbvjgnut" path="res://assets/audio/breathing-rapidly-male-dan-barracuda-1-00-09.mp3" id="5_2hs0m"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4flbx"]
 
@@ -30,3 +32,10 @@ light_energy = 16.0
 light_volumetric_fog_energy = 0.1
 spot_range = 15.0
 script = ExtResource("3_i3pqv")
+
+[node name="Walking" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_sweqy")
+max_db = 4.25
+
+[node name="Running" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_2hs0m")
