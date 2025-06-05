@@ -1,7 +1,5 @@
 extends Control
-
-@onready var return_button = $PanelContainer/MarginContainer/VBoxContainer/Return  # Adjust this path if needed
-
+ # Adjust this path if needed
 func _ready() -> void:
 	pass
 
