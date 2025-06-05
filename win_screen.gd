@@ -1,7 +1,9 @@
 extends Control
- # Adjust this path if needed
-func _ready() -> void:
-	pass
+
+
+@onready var return_button = $PanelContainer/MarginContainer/VBoxContainer/Return  # Adjust this path if needed
+
+
 
 func _on_return_pressed() -> void:
 	get_tree().paused = false
