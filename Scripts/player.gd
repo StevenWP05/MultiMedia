@@ -49,3 +49,12 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+func die():
+	# Play death sound
+	Soundmanger.get_node("Death").play()
+	# Optional: Disable movement or show Game Over screen
+	set_physics_process(false)
+	# Optional: show Game Over scene
+	await get_tree().create_timer(2.8).timeout
+	get_tree().change_scene_to_file("res://scenes/gameover.tscn")

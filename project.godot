@@ -15,6 +15,10 @@ run/main_scene="uid://c4rpyru75srwa"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Soundmanger="*res://soundmanager.tscn"
+
 [filesystem]
 
 import/blender/enabled=false

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cunkjwy1drdro"]
+
+[ext_resource type="Script" uid="uid://c4ohqs8yi0dl1" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="ArrayMesh" uid="uid://dy857k0rt7arg" path="res://Enemy.obj" id="1_7k104"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4gyqm"]
+margin = 0.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4gyqm"]
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_4gyqm")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 1.45
+
+[node name="Visual" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.792653, 0)
+mesh = ExtResource("1_7k104")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(3.285, 0, 0, 0, 3.505, 0, 0, 0, 3.664, 0, 1.93911, 0.129331)
+shape = SubResource("ConvexPolygonShape3D_4gyqm")
+
+[node name="Kill" type="Area3D" parent="."]
+transform = Transform3D(0.86, 0, 0, 0, 0.46, 0, 0, 0, 0.805, 0, 2.17357, 0.119093)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Kill"]
+transform = Transform3D(1.91656, 0, 4.22549, 0, 4.669, 0, -4.4607, 0, 1.8155, 0, -0.145792, 0)
+shape = SubResource("CapsuleShape3D_4gyqm")
+
+[connection signal="body_entered" from="Kill" to="." method="_on_kill_body_entered"]

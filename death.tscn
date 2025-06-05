@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csfxpurnflxwo"]
+
+[ext_resource type="AudioStream" uid="uid://bsdephha73f7n" path="res://assets/audio/564950__xloizlol__jumpscare.wav" id="1_qemge"]
+
+[node name="Death" type="AudioStreamPlayer"]
+stream = ExtResource("1_qemge")

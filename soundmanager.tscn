@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqrclf8h0icd2"]
+
+[ext_resource type="PackedScene" uid="uid://csfxpurnflxwo" path="res://death.tscn" id="1_7bkxl"]
+
+[node name="Soundmanager" type="Node"]
+
+[node name="Death" parent="." instance=ExtResource("1_7bkxl")]
