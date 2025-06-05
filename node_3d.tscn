@@ -70,7 +70,7 @@ light_energy = 11.852
 shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("2_noarx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13057, 9.49274, 2.73585)
+transform = Transform3D(0.019878, 0, -0.999802, 0, 1, 0, 0.999802, 0, 0.019878, 0.197014, 9.49274, 0.786524)
 
 [node name="UI" parent="." instance=ExtResource("3_a0tk4")]
 anchor_right = 1.0
@@ -134,4 +134,4 @@ navigation_mesh = SubResource("NavigationMesh_i5arm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.56467, 0.901581, 6.36642)
 
 [node name="Enemy" parent="." instance=ExtResource("8_jsk3o")]
-transform = Transform3D(0.0191968, 0, -0.79977, 0, 0.8, 0, 0.79977, 0, 0.0191968, 18.3482, 7.9103, 1.1302)
+transform = Transform3D(0.0191968, 0, -0.79977, 0, 0.8, 0, 0.79977, 0, 0.0191968, 65.4936, 7.9103, 10.2706)
