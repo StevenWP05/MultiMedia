@@ -9,7 +9,6 @@ func _ready():
 
 
 func _on_return_pressed() -> void:
-	click_sound.play()
 	await get_tree().create_timer(0.2).timeout 
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Unpause the gameInput.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
