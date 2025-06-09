@@ -1,10 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5xobwyf6vb55"]
+[gd_scene load_steps=11 format=3 uid="uid://b5xobwyf6vb55"]
 
 [ext_resource type="Script" uid="uid://cwr4i4e1jx7v3" path="res://win_screen.gd" id="1_l2arl"]
+[ext_resource type="FontFile" uid="uid://bixh6yjbmwkif" path="res://Beautiful Horror.ttf" id="2_wmwda"]
 
 [sub_resource type="FontVariation" id="FontVariation_731nq"]
 fallbacks = Array[Font]([null])
 variation_embolden = -0.85
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_luvg0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hoe6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6jvr"]
+bg_color = Color(1, 0.321191, 0.420651, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wmwda"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5t5q"]
+bg_color = Color(0.823529, 0.823529, 0.823529, 0.27451)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1txte"]
+bg_color = Color(0.635294, 0.635294, 0.635294, 0.164706)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26557"]
+bg_color = Color(1, 1, 1, 0.0666667)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
 
 [node name="Win screen" type="Control"]
 process_mode = 3
@@ -34,8 +71,9 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 55
-text = "You escaped!"
+theme_override_fonts/font = ExtResource("2_wmwda")
+theme_override_font_sizes/font_size = 115
+text = "You escaped"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -66,7 +104,28 @@ justification_flags = 131
 
 [node name="return" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_luvg0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hoe6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_g6jvr")
 text = "Return
 "
 
+[node name="return2" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+process_mode = 3
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(1, 0.668803, 0.616929, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wmwda")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l5t5q")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1txte")
+theme_override_styles/normal = SubResource("StyleBoxFlat_26557")
+text = "Return"
+
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/return" to="." method="_on_return_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/return2" to="." method="_on_return_2_pressed"]

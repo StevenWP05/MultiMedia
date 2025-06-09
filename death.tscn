@@ -4,3 +4,4 @@
 
 [node name="Death" type="AudioStreamPlayer"]
 stream = ExtResource("1_qemge")
+volume_db = -9.389

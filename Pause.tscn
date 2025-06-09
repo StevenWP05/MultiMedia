@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm1uiioyohk6w"]
+[gd_scene load_steps=3 format=3 uid="uid://cm1uiioyohk6w"]
 
 [ext_resource type="Script" uid="uid://c8xgo41q5btn4" path="res://pause.gd" id="1_sn2qd"]
+[ext_resource type="AudioStream" uid="uid://cqcyegtkjf2bi" path="res://assets/audio/333044__christopherderp__videogame-menu-button-clicking-sound-15.wav" id="2_alh12"]
 
 [node name="Pause_menu" type="Control"]
 process_mode = 3
@@ -72,6 +73,9 @@ text = "Resume"
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Quit"
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_alh12")
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/Leave" to="." method="_on_leave_pressed"]

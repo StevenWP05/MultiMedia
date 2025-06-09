@@ -35,6 +35,7 @@ script = ExtResource("3_i3pqv")
 
 [node name="Walking" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_sweqy")
+volume_db = 13.333
 max_db = 4.25
 
 [node name="Running" type="AudioStreamPlayer3D" parent="."]

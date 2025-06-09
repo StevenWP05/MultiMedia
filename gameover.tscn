@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ep61e2ukuik2"]
 
 [ext_resource type="Script" uid="uid://430ql3rjulja" path="res://gameover.gd" id="1_4nh4k"]
-[ext_resource type="VideoStream" path="res://assets/Jumpscare0001-0065.ogv" id="2_tpdqf"]
+[ext_resource type="VideoStream" uid="uid://d0a6ifuipbghn" path="res://assets/Jumpscare0001-0065.ogv" id="2_tpdqf"]
 
 [sub_resource type="SystemFont" id="SystemFont_c7yh7"]
 
@@ -27,6 +27,7 @@ grow_vertical = 2
 stream = ExtResource("2_tpdqf")
 autoplay = true
 expand = true
+loop = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

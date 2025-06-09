@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c4rpyru75srwa"]
+[gd_scene load_steps=10 format=3 uid="uid://c4rpyru75srwa"]
 
 [ext_resource type="Texture2D" uid="uid://bgduo04t0a2nw" path="res://background.webp" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://df580u2kwsdsb" path="res://Scripts/main_menu.gd" id="1_fu7sn"]
 [ext_resource type="FontFile" uid="uid://bixh6yjbmwkif" path="res://Beautiful Horror.ttf" id="2_7vrkn"]
+[ext_resource type="AudioStream" uid="uid://cqcyegtkjf2bi" path="res://assets/audio/333044__christopherderp__videogame-menu-button-clicking-sound-15.wav" id="4_jix8l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vrkn"]
 
@@ -73,7 +74,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_7vrkn")
 theme_override_font_sizes/font_size = 150
-text = "Maze Game"
+text = "Nightmare Monke"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -134,7 +135,10 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
 text = "Exit"
 
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_jix8l")
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
