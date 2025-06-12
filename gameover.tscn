@@ -27,7 +27,6 @@ grow_vertical = 2
 stream = ExtResource("2_tpdqf")
 autoplay = true
 expand = true
-loop = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

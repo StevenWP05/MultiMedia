@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfgbdgr3rmo6k"]
+
+[ext_resource type="Script" uid="uid://cvt4vob0gentd" path="res://cotrols.gd" id="1_2j67p"]
+[ext_resource type="Texture2D" uid="uid://drj6adf0p5qh2" path="res://assets/images/W.png" id="1_j1jgb"]
+[ext_resource type="AudioStream" uid="uid://cqcyegtkjf2bi" path="res://assets/audio/333044__christopherderp__videogame-menu-button-clicking-sound-15.wav" id="3_o58wy"]
+
+[node name="Cotrols" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2j67p")
+
+[node name="controls" type="Sprite2D" parent="."]
+position = Vector2(639, 368)
+texture = ExtResource("1_j1jgb")
+
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_o58wy")
