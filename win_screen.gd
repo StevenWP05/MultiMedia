@@ -1,17 +1,10 @@
 extends Control
+@onready var click_sound = $ClickSound
 
 
-@onready var return_button = $PanelContainer/MarginContainer/VBoxContainer/Return  # Adjust this path if needed
-
-
-
-func _on_return_pressed() -> void:
-	get_tree().paused = false
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Unpause the gameInput.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	get_tree().change_scene_to_file("res://main_menu.tscn") # Replace with function body.
-
-
-func _on_return_2_pressed() -> void:
+func _on_button_pressed() -> void:
+	click_sound.play()
+	await get_tree().create_timer(0.2).timeout
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Unpause the gameInput.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene_to_file("res://main_menu.tscn") # Replace with function body.

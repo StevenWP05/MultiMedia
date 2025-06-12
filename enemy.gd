@@ -16,7 +16,7 @@ func _physics_process(delta):
 		var direction = (target_position - my_position).normalized()
 		direction.y = 0
 		if direction.length() > 0:
-			var target_basis = Basis().looking_at(direction, Vector3.UP)
+			var target_basis = Basis.looking_at(direction, Vector3.UP)
 			visual.global_transform.basis = visual.global_transform.basis.slerp(target_basis, delta * 5.0)
 	var current_location = global_transform.origin
 	var next_location = nav_agent.get_next_path_position()

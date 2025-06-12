@@ -46,8 +46,8 @@ grow_vertical = 2
 script = ExtResource("1_fu7sn")
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(575, 351)
-scale = Vector2(2.667, 2.366)
+position = Vector2(617, 197)
+scale = Vector2(1.36389, 1.60272)
 texture = ExtResource("1_06t4h")
 
 [node name="Panel" type="Panel" parent="."]
@@ -96,7 +96,7 @@ theme_override_constants/separation = 9
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(1, 0.668803, 0.616929, 1)
+theme_override_colors/font_hover_color = Color(1, 0.917647, 0.168627, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -110,7 +110,7 @@ text = "Start Game"
 [node name="Button2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(1, 0.670588, 0.615686, 1)
+theme_override_colors/font_hover_color = Color(1, 0.917647, 0.168627, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
@@ -124,7 +124,7 @@ text = "Options"
 [node name="Button3" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(1, 0.670588, 0.615686, 1)
+theme_override_colors/font_hover_color = Color(1, 0.917647, 0.168627, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)

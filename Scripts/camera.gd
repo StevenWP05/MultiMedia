@@ -22,6 +22,7 @@ func _input(event: InputEvent) -> void:
 		rotate_x(-event.relative.y * sens)
 		rotation_degrees.x = clamp(rotation_degrees.x, -90, 90)
 
+
 func pause_game():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().paused = true
@@ -33,3 +34,7 @@ func resume_game():
 	get_tree().paused = false
 	if pause_menu:
 		pause_menu.visible = false
+		
+func force_resume_camera():
+	mouse_captured = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)

@@ -4,5 +4,6 @@ extends Node3D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	# Update all enemies' target positions to the player's position
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+
 	get_tree().call_group("enemy", "update_current_position", player.global_transform.origin)

@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 var SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 var sprint_slider
@@ -9,8 +8,6 @@ var sprint_slider
 
 func _ready():
 	sprint_slider = get_node("/root/" + get_tree().current_scene.name + "/UI/sprint_slider")
-
-
 		
 func _process(delta):
 	if SPEED == 8:

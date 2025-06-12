@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://djw1qdkq7ylai"]
+[gd_scene load_steps=5 format=3 uid="uid://djw1qdkq7ylai"]
 
 [ext_resource type="Script" uid="uid://cvqhsno3l3wj7" path="res://settings.gd" id="1_x2hje"]
+[ext_resource type="AudioStream" uid="uid://cqcyegtkjf2bi" path="res://assets/audio/333044__christopherderp__videogame-menu-button-clicking-sound-15.wav" id="2_nkug2"]
+[ext_resource type="Script" uid="uid://de2s01xq457g7" path="res://options.gd" id="3_3ykye"]
+[ext_resource type="Texture2D" uid="uid://bgduo04t0a2nw" path="res://background.webp" id="4_gc0em"]
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -11,7 +14,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x2hje")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="ClickSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_nkug2")
+
+[node name="Options" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_3ykye")
+
+[node name="Sprite2D" type="Sprite2D" parent="Options"]
+position = Vector2(622, 368)
+rotation = 3.14159
+scale = Vector2(1.32028, -1.15508)
+texture = ExtResource("4_gc0em")
+
+[node name="PanelContainer" type="PanelContainer" parent="Options"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,24 +40,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Options/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Options/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Volume"
 
-[node name="HSlider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+[node name="HSlider" type="HSlider" parent="Options/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+max_value = 1.0
+step = 0.05
+value = 1.0
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Options/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Mute"
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer"]
+[node name="CheckBox" type="CheckBox" parent="Options/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="resolutions" type="OptionButton" parent="MarginContainer/VBoxContainer"]
+[node name="resolutions" type="OptionButton" parent="Options/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 selected = 2
 item_count = 3
@@ -47,11 +74,12 @@ popup/item_1/id = 1
 popup/item_2/text = "1280x720"
 popup/item_2/id = 2
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Back" type="Button" parent="Options/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Back"
+text = "Save & Exit
+"
 
-[connection signal="value_changed" from="MarginContainer/VBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="toggled" from="MarginContainer/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/resolutions" to="." method="_on_resolutions_item_selected"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="mouse_exited" from="Options/PanelContainer/MarginContainer/VBoxContainer/HSlider" to="Options" method="_on_h_slider_mouse_exited"]
+[connection signal="toggled" from="Options/PanelContainer/MarginContainer/VBoxContainer/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="item_selected" from="Options/PanelContainer/MarginContainer/VBoxContainer/resolutions" to="." method="_on_resolutions_item_selected"]
+[connection signal="pressed" from="Options/PanelContainer/MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
